@@ -9,34 +9,34 @@ import java.util.*
 public class algorithm {
   public static void main(String[] args) {
     Scanner in=new Scanner(System.in);
-		int input1 = in.nextInt();
-		int input2 = in.nextInt();
-		
-		int[] arr = new int[input1];
-		for (int i = 0; i < input1; i++) {
-			arr[i] = in.nextInt();
-		}
+    int input1 = in.nextInt();
+    int input2 = in.nextInt();
+    
+    int[] arr = new int[input1];
+    for (int i = 0; i < input1; i++) {
+    	arr[i] = in.nextInt();
+    }
     
     Set<Integer> tempSet = new TreeSet<>(Collections.reverseOrder());
-		int sum;
-		for (int i = 0; i < input1; i++) {
-			for (int j = i + 1; j < input1; j++) {
-				for (int k = j + 1; k < input1; k++) {
-					sum = arr[i] + arr[j] + arr[k];
-					tempSet.add(sum);
-				}
-			}
-		}
-		
-		int cnt = 0;
-		int result = -1;
-		for (int x : tempSet) {
-			cnt++;
-			if (cnt == input2) {
-				result = x;
-				break;
-			}
-		}
+    int sum;
+    for (int i = 0; i < input1; i++) {
+    	for (int j = i + 1; j < input1; j++) {
+    		for (int k = j + 1; k < input1; k++) {
+    			sum = arr[i] + arr[j] + arr[k];
+    			tempSet.add(sum);
+    		}
+    	}
+    }
+    
+    int cnt = 0;
+    int result = -1;
+    for (int x : tempSet) {
+    	cnt++;
+    	if (cnt == input2) {
+    		result = x;
+    		break;
+    	}
+    }
   }
 }
 ```

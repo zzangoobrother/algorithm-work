@@ -8,34 +8,34 @@ import java.util.Scanner;
 public class algorithm {
   public static void main(String[] args) {
       Scanner in=new Scanner(System.in);
-	    int input1 = in.nextInt();
-	    int input2 = in.nextInt();
+      int input1 = in.nextInt();
+      int input2 = in.nextInt();
       
       int[] arr = new int[input2];
-	    for (int i = 0; i < input2; i++) {
-	    	arr[i] = in.nextInt();
-	    }
+      for (int i = 0; i < input2; i++) {
+      	arr[i] = in.nextInt();
+      }
     
       int[] result = new int[input1];
-	    for (int x : arr) {
-	    	int hit = -1;
-	    	for (int i = 0; i < input1; i++) {
-	    		if (x == result[i]) {
-	    			hit = i;
-	    			break;
-	    		}
-	    	}
-	    	if (hit == -1) {
-	    		for (int i = input1-1; i >= 1; i--) {
-	    			result[i] = result[i-1];
-	    		}
-	    	} else {
-	    		for (int i = hit; i >= 1; i--) {
-	    			result[i] = result[i-1];
-	    		}
-	    	}
-	    	result[0] = x;
-	    }
+      for (int x : arr) {
+      	int hit = -1;
+      	for (int i = 0; i < input1; i++) {
+      	    if (x == result[i]) {
+      	    	hit = i;
+      	    	break;
+      	    }
+      	}
+      	if (hit == -1) {
+      	    for (int i = input1-1; i >= 1; i--) {
+      	    	result[i] = result[i-1];
+      	    }
+      	} else {
+      	    for (int i = hit; i >= 1; i--) {
+      	    	result[i] = result[i-1];
+      	    }
+      	}
+      	result[0] = x;
+      }
   }
 }
 ```
@@ -47,8 +47,8 @@ import java.util.Scanner;
 public class algorithm {
    public static void main(String[] args) {
       Scanner in=new Scanner(System.in);
-	    int input1 = in.nextInt();
-	    int input2 = in.nextInt();
+      int input1 = in.nextInt();
+      int input2 = in.nextInt();
      
       List<Integer> list = new ArrayList<>();
       for (int i = 0; i < input2; i++) {

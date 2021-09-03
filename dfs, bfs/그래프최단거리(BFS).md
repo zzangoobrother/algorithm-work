@@ -8,49 +8,49 @@ import java.util.*
 
 public class algorithm {
   static int[][] arr;
-	static Map<Integer, Integer> result = new TreeMap<>();
+  static Map<Integer, Integer> result = new TreeMap<>();
   
   public static void main(String[] args) {
     Scanner in=new Scanner(System.in);
-		int input1 = in.nextInt();
-		int input2 = in.nextInt();
+    int input1 = in.nextInt();
+    int input2 = in.nextInt();
     
     arr = new int[input1+ 1][input1+ 1];
-		for (int i = 0; i < input2; i++) {
-			int a = in.nextInt();
-			int b = in.nextInt();
-			arr[a][b] = 1;
-		}
+    for (int i = 0; i < input2; i++) {
+    	int a = in.nextInt();
+    	int b = in.nextInt();
+    	arr[a][b] = 1;
+    }
     
     bfs(1, input1);
 		
-		for (int x : result.keySet()) {
-			System.out.println(x + " : " + result.get(x));
-		}
+    for (int x : result.keySet()) {
+    	System.out.println(x + " : " + result.get(x));
+    }
   }
   
   public static void bfs(int v, int input1) {
-		Queue<Integer> queue = new LinkedList<>();
-		queue.offer(v);
-		int level = 0;
-		while (!queue.isEmpty()) {
-			int len = queue.size();
-			for (int i = 0; i < len; i++) {
-				int cur = queue.poll();
-				for (int j = 1; j <= input1; j++) {
-					if (arr[cur][j] == 1) {
-						if (!result.containsKey(j)) {
-							result.put(j, level+1);
-							queue.offer(j);
-						}
-						if (result.size() == (input1 - 1)) {
-							return;
-						}
-					}
-				}
-			}
-			level++;
-		}
-	}
+      Queue<Integer> queue = new LinkedList<>();
+      queue.offer(v);
+      int level = 0;
+      while (!queue.isEmpty()) {
+      	int len = queue.size();
+      	for (int i = 0; i < len; i++) {
+      	   int cur = queue.poll();
+      	   for (int j = 1; j <= input1; j++) {
+      	      if (arr[cur][j] == 1) {
+      	      	if (!result.containsKey(j)) {
+      	      		result.put(j, level+1);
+      	      		queue.offer(j);
+      	      	}
+      	      	if (result.size() == (input1 - 1)) {
+      	      		return;
+      	      	}
+      	      }
+      	   }
+      	}
+      	level++;
+      }
+  }
 }
 ```

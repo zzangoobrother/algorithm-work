@@ -7,38 +7,38 @@ import java.util.*
 
 public class algorithm {
   static Integer[] arr;
-	static int input1, input2;
-	static int result = 501;
+  static int input1, input2;
+  static int result = 501;
   
   public static void main(String[] args) {
     Scanner in=new Scanner(System.in);
-		input1 = in.nextInt();
-				
-		arr = new Integer[input1];
-		for (int i = 0; i < input1; i++) {
-			arr[i] = in.nextInt();
-		}
-		Arrays.sort(arr, Collections.reverseOrder());
-		input2 = in.nextInt();
-		
-		dfs(0, 0);
-				
-		System.out.println(result);
+    input1 = in.nextInt();
+    		
+    arr = new Integer[input1];
+    for (int i = 0; i < input1; i++) {
+    	arr[i] = in.nextInt();
+    }
+    Arrays.sort(arr, Collections.reverseOrder());
+    input2 = in.nextInt();
+    
+    dfs(0, 0);
+    		
+    System.out.println(result);
   }
   
   public static void dfs(int v, int sum) {
-		if (sum > input2)
-			return;
-		if (v >= result)
-			return;
-		
-		if (sum == input2) {
-			result = Math.min(result, v);
-		} else {
-			for (int i = 0; i < input1; i++) {
-				dfs(v+1, sum + arr[i]);
-			}
-		}	
-	}
+    if (sum > input2)
+    	return;
+    if (v >= result)
+    	return;
+    
+    if (sum == input2) {
+    	result = Math.min(result, v);
+    } else {
+    	for (int i = 0; i < input1; i++) {
+    		dfs(v+1, sum + arr[i]);
+    	}
+    }	
+  }
 }
 ```

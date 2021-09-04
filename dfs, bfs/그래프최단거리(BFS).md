@@ -69,39 +69,39 @@ public class algorithm {
 	int input2 = in.nextInt();
 	
 	graph = new ArrayList<>();
-		for (int i = 0; i <= input1; i++) {
-			graph.add(new ArrayList<>());
-		}
+	for (int i = 0; i <= input1; i++) {
+		graph.add(new ArrayList<>());
+	}
 		
 	check = new int[input1+1];
-		dis = new int[input1+1];
-		for (int i = 0; i < input2; i++) {
-			int a = in.nextInt();
-			int b = in.nextInt();
-			graph.get(a).add(b);
-		}
+	dis = new int[input1+1];
+	for (int i = 0; i < input2; i++) {
+		int a = in.nextInt();
+		int b = in.nextInt();
+		graph.get(a).add(b);
+	}
 		
 	bfs(1);
-		for (int i = 2; i <= input1; i++) {
-			System.out.println(i + " : " + dis[i]);
-		}
+	for (int i = 2; i <= input1; i++) {
+		System.out.println(i + " : " + dis[i]);
+	}
     }
     
     public static void bfs(int v) {
-		Queue<Integer> queue = new LinkedList<>();
-		check[v] = 1;
-		dis[v] = 0;
-		queue.offer(v);
-		while (!queue.isEmpty()) {
-			int cv = queue.poll();
-			for (int x : graph.get(cv)) {
-				if (check[x] == 0) {
-					check[x] = 1;
-					queue.offer(x);
-					dis[x] = dis[cv]+1;
-				}
+	Queue<Integer> queue = new LinkedList<>();
+	check[v] = 1;
+	dis[v] = 0;
+	queue.offer(v);
+	while (!queue.isEmpty()) {
+		int cv = queue.poll();
+		for (int x : graph.get(cv)) {
+			if (check[x] == 0) {
+				check[x] = 1;
+				queue.offer(x);
+				dis[x] = dis[cv]+1;
 			}
 		}
 	}
+    }
 }
 ```

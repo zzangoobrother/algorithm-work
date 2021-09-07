@@ -11,43 +11,43 @@ public class algorithm {
   
   public static void main(String[] args) {
     Scanner in=new Scanner(System.in);
-		int input1 = in.nextInt();
-		int input2 = in.nextInt();
-		
-		String result = "NO";
-		
-		arr = new int[input1+1];
-		for (int i = 1; i <= input1; i++)
-			arr[i] = i;
-		
-		for (int i = 1; i <= input2; i++) {
-			int a = in.nextInt();
-			int b = in.nextInt();
-			union(a, b);
-		}
-		
-		int a = in.nextInt();
-		int b = in.nextInt();
-		int fa = find(a);
-		int fb = find(b);
-		if (fa == fb)
-			result = "YES";
-		
-		System.out.println(result);
+    int input1 = in.nextInt();
+    int input2 = in.nextInt();
+    
+    String result = "NO";
+    
+    arr = new int[input1+1];
+    for (int i = 1; i <= input1; i++)
+    	arr[i] = i;
+    
+    for (int i = 1; i <= input2; i++) {
+    	int a = in.nextInt();
+    	int b = in.nextInt();
+    	union(a, b);
+    }
+    
+    int a = in.nextInt();
+    int b = in.nextInt();
+    int fa = find(a);
+    int fb = find(b);
+    if (fa == fb)
+    	result = "YES";
+    
+    System.out.println(result);
   }
   
   static void union(int a, int b) {
-		int fa = find(a);
-		int fb = find(b);
-		if (fa != fb)
-			arr[fa] = fb;
-	}
+  	int fa = find(a);
+  	int fb = find(b);
+  	if (fa != fb)
+  		arr[fa] = fb;
+  }
 	
-	static int find(int v) {
-		if (v == arr[v])
-			return v;
-		else 
-			return arr[v] = find(arr[v]);
-	}
+  static int find(int v) {
+  	if (v == arr[v])
+  		return v;
+  	else 
+  		return arr[v] = find(arr[v]);
+  }
 }
 ```

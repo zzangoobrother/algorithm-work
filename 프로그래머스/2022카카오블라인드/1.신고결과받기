@@ -2,7 +2,7 @@
 
 내가 푼 결과
 
-''''java
+````java
 import java.util.*;
 
 class Solution {
@@ -42,4 +42,4 @@ class Solution {
         return answer;
     }
 }
-''''
+````

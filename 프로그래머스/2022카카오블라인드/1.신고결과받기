@@ -1,7 +1,8 @@
 문제 : https://programmers.co.kr/learn/courses/30/lessons/92334?language=java
 
 내가 푼 결과
-````java
+
+''''java
 import java.util.*;
 
 class Solution {
@@ -41,4 +42,4 @@ class Solution {
         return answer;
     }
 }
-````
+''''

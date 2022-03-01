@@ -1,0 +1,44 @@
+문제 : https://programmers.co.kr/learn/courses/30/lessons/92334?language=java
+
+내가 푼 결과
+````java
+import java.util.*;
+
+class Solution {
+    public int[] solution(String[] id_list, String[] report, int k) {
+        Map<String, List<String>> reportnames = new HashMap<>();
+        Map<String, Integer> count = new HashMap<>();
+        for (String id : id_list) {
+            reportnames.put(id, new ArrayList<>());
+            count.put(id, 0);
+        }
+
+        Set<String> duplicationNames = new HashSet<>();
+        for (String target : report) {
+            if (duplicationNames.contains(target)) {
+                continue;
+            }
+
+            duplicationNames.add(target);
+            String[] ids = target.split(" ");
+            reportnames.get(ids[0]).add(ids[1]);
+            count.put(ids[1], count.getOrDefault(ids[1], 0) + 1);
+        }
+
+        int[] answer = new int[id_list.length];
+        for (int i = 0; i < id_list.length; i++) {
+            List<String> ids = reportnames.get(id_list[i]);
+            int result = 0;
+            for (String name : ids) {
+                if (count.get(name) >= k) {
+                    result++;
+                }
+            }
+
+            answer[i] = result;
+        }
+    
+        return answer;
+    }
+}
+````
